@@ -13,11 +13,12 @@ body {
 .item-list div {
     padding: 10px;
     background-color: #f0f0f0;
-    border: 1px solid #ccc;
+    border: 2px solid red;  /* Ajoute une bordure rouge pour bien voir */
     border-radius: 5px;
     cursor: pointer;
     color: #000;
 }
+
 
 .item-list div:hover {
     background-color: #e0e0e0;
