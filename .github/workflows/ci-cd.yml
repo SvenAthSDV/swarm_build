@@ -19,5 +19,6 @@ jobs:
           cd /home/my_build_site/my_build_site
           git pull origin main
           cd backend
-          node server.js
+          pm2 start server.js --name "my-app"
+          pm2 save
         EOF
