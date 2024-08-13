@@ -11,13 +11,10 @@ body {
 }
 
 .item-list div {
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 2px solid red;  /* Ajoute une bordure rouge pour bien voir */
-    border-radius: 5px;
-    cursor: pointer;
-    color: #000;
+    position: relative;
+    z-index: 10;  /* Met les étiquettes au premier plan */
 }
+
 
 
 .item-list div:hover {
