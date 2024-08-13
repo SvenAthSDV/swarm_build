@@ -1,21 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>LoL Build Creator</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarm Build Creator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to the LoL Build Creator</h1>
-    <form id="buildForm">
-        <label for="character">Select your character:</label>
-        <select id="character" name="character">
-            <option value="garen">Garen</option>
-            <option value="ahri">Ahri</option>
-            <option value="lux">Lux</option>
+    <h1>Swarm Build Creator</h1>
+    
+    <div>
+        <label for="champion">Select a Champion:</label>
+        <select id="champion">
+            <!-- Options will be populated via JavaScript -->
         </select>
-        <button type="submit">Create Build</button>
-    </form>
-    <div id="buildOutput"></div>
+    </div>
+
+    <div>
+        <label for="weapons">Select a Weapon:</label>
+        <select id="weapons" multiple>
+            <!-- Options will be populated via JavaScript -->
+        </select>
+    </div>
+
+    <div id="passives">
+        <!-- Recommended passives will be shown here -->
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
