@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const championSelect = document.getElementById('champion');
     const weaponList = document.getElementById('weaponList');
     const augmentList = document.getElementById('augmentList');
     const selectedItemsTable = document.getElementById('selectedItemsTable').querySelector('tbody');
@@ -8,29 +7,47 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('/champions')
         .then(response => response.json())
         .then(champions => {
-            console.log('Champions loaded:', champions); // Débogage
+            // Récupérer toutes les armes et augmentations disponibles
+            let allWeapons = [];
+            let allAugments = [];
+
             champions.forEach(champion => {
-                let option = document.createElement('option');
-                option.value = champion.name;
-                option.textContent = champion.name;
-                championSelect.appendChild(option);
+                // Ajouter les armes du champion à la liste totale
+                champion.items.forEach(item => {
+                    if (!allWeapons.includes(item)) {
+                        allWeapons.push(item);
+                    }
+                });
+                // Ajouter les augmentations du champion à la liste totale
+                champion.augments.forEach(augment => {
+                    if (!allAugments.includes(augment)) {
+                        allAugments.push(augment);
+                    }
+                });
             });
 
-            championSelect.addEventListener('change', function() {
-                const selectedChampion = champions.find(c => c.name === championSelect.value);
-                console.log('Selected champion:', selectedChampion); // Débogage
+            // Afficher toutes les armes disponibles
+            weaponList.innerHTML = '';  // Réinitialiser la liste des armes
+            allWeapons.forEach(weaponName => {
+                let weaponTag = document.createElement('div');
+                weaponTag.textContent = weaponName;
+                console.log('Adding weapon:', weaponName);
+                weaponTag.onclick = function() {
+                    addItemToTable('Weapon', weaponName);
+                };
+                weaponList.appendChild(weaponTag);
+            });
 
-                // Afficher les armes associées au champion sélectionné
-                weaponList.innerHTML = '';  // Réinitialiser la liste des armes
-                selectedChampion.weapons.forEach(weaponName => {
-                    let weaponTag = document.createElement('div');
-                    weaponTag.textContent = weaponName;
-                    weaponTag.style.cssText = "background-color: yellow; color: black; border: 1px solid black; padding: 10px;"; 
-                    weaponTag.onclick = function() {
-                        addItemToTable('Weapon', weaponName);
-                    };
-                    weaponList.appendChild(weaponTag);
-                });
+            // Afficher toutes les augmentations disponibles
+            augmentList.innerHTML = '';  // Réinitialiser la liste des augmentations
+            allAugments.forEach(augment => {
+                let augmentTag = document.createElement('div');
+                augmentTag.textContent = augment;
+                console.log('Adding augment:', augment);
+                augmentTag.onclick = function() {
+                    addItemToTable('Augment', augment);
+                };
+                augmentList.appendChild(augmentTag);
             });
         });
 
