@@ -2,8 +2,20 @@
 <html>
 <head>
     <title>LoL Build Creator</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <h1>Welcome to the LoL Build Creator</h1>
+    <form id="buildForm">
+        <label for="character">Select your character:</label>
+        <select id="character" name="character">
+            <option value="garen">Garen</option>
+            <option value="ahri">Ahri</option>
+            <option value="lux">Lux</option>
+        </select>
+        <button type="submit">Create Build</button>
+    </form>
+    <div id="buildOutput"></div>
+    <script src="script.js"></script>
 </body>
 </html>
