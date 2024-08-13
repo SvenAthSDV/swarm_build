@@ -77,12 +77,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const row = document.createElement('tr');
         const typeCell = document.createElement('td');
         const nameCell = document.createElement('td');
-        
+        const evolveCell = document.createElement('td');
+
         typeCell.textContent = type;
         nameCell.textContent = name;
+        evolveCell.textContent = evolve;
         
         row.appendChild(typeCell);
         row.appendChild(nameCell);
+        row.appendChild(evolveCell);
         selectedItemsTable.appendChild(row);
     }
 });
