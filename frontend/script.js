@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const championSelect = document.getElementById('champion');
-    const weaponsSelect = document.getElementById('weapons');
-    const passivesDiv = document.getElementById('passives');
+    const weaponList = document.getElementById('weaponList');
+    const augmentList = document.getElementById('augmentList');
+    const selectedItemsTable = document.getElementById('selectedItemsTable').querySelector('tbody');
 
     // Charger les données des champions
     fetch('/champions')
@@ -14,38 +15,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 championSelect.appendChild(option);
             });
 
-            // Ajouter un événement sur le changement de sélection de champion
             championSelect.addEventListener('change', function() {
                 const selectedChampion = champions.find(c => c.name === championSelect.value);
                 
                 // Afficher les armes associées au champion sélectionné
-                weaponsSelect.innerHTML = '';  // Réinitialiser la sélection des armes
+                weaponList.innerHTML = '';  // Réinitialiser la liste des armes
                 selectedChampion.weapons.forEach(weaponName => {
-                    let option = document.createElement('option');
-                    option.value = weaponName;
-                    option.textContent = weaponName;
-                    weaponsSelect.appendChild(option);
+                    let weaponDiv = document.createElement('div');
+                    weaponDiv.textContent = weaponName;
+                    weaponDiv.onclick = function() {
+                        addItemToTable('Weapon', weaponName);
+                    };
+                    weaponList.appendChild(weaponDiv);
                 });
 
-                // Afficher les passifs recommandés
-                passivesDiv.innerHTML = `<h2>Recommended Passives for ${selectedChampion.name}:</h2>`;
-                selectedChampion.recommended_passives.forEach(passive => {
-                    passivesDiv.innerHTML += `<p>${passive}</p>`;
+                // Afficher les augmentations recommandées
+                augmentList.innerHTML = '';  // Réinitialiser la liste des augmentations
+                selectedChampion.augments.forEach(augment => {
+                    let augmentDiv = document.createElement('div');
+                    augmentDiv.textContent = augment;
+                    augmentDiv.onclick = function() {
+                        addItemToTable('Augment', augment);
+                    };
+                    augmentList.appendChild(augmentDiv);
                 });
             });
         });
 
-    // Charger les données des armes et afficher les descriptions
-    fetch('/weapons')
-        .then(response => response.json())
-        .then(weapons => {
-            weaponsSelect.addEventListener('change', function() {
-                const selectedWeapon = weapons.find(w => w.name === weaponsSelect.value);
-                if (selectedWeapon) {
-                    passivesDiv.innerHTML += `<h3>${selectedWeapon.full_name}</h3>`;
-                    passivesDiv.innerHTML += `<p><strong>Function:</strong> ${selectedWeapon.function}</p>`;
-                    passivesDiv.innerHTML += `<p><strong>Evolve Effect:</strong> ${selectedWeapon.evolve} - ${selectedWeapon.evolve_effect}</p>`;
-                }
-            });
-        });
+    function addItemToTable(type, name) {
+        const row = document.createElement('tr');
+        const typeCell = document.createElement('td');
+        const nameCell = document.createElement('td');
+        
+        typeCell.textContent = type;
+        nameCell.textContent = name;
+        
+        row.appendChild(typeCell);
+        row.appendChild(nameCell);
+        selectedItemsTable.appendChild(row);
+    }
 });
