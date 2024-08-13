@@ -11,9 +11,17 @@ body {
 }
 
 .item-list div {
-    position: relative;
-    z-index: 10;  /* Met les étiquettes au premier plan */
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #000;
+    min-width: 100px;  /* Forcer une largeur minimale */
+    min-height: 30px;  /* Forcer une hauteur minimale */
+    text-align: center;
 }
+
 
 
 
