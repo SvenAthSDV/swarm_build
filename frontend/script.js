@@ -21,23 +21,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Afficher les armes associées au champion sélectionné
                 weaponList.innerHTML = '';  // Réinitialiser la liste des armes
                 selectedChampion.weapons.forEach(weaponName => {
-                    let weaponDiv = document.createElement('div');
-                    weaponDiv.textContent = weaponName;
-                    weaponDiv.onclick = function() {
+                    let weaponTag = document.createElement('div');
+                    weaponTag.textContent = weaponName;
+                    weaponTag.onclick = function() {
                         addItemToTable('Weapon', weaponName);
                     };
-                    weaponList.appendChild(weaponDiv);
+                    weaponList.appendChild(weaponTag);
                 });
 
                 // Afficher les augmentations recommandées
                 augmentList.innerHTML = '';  // Réinitialiser la liste des augmentations
                 selectedChampion.augments.forEach(augment => {
-                    let augmentDiv = document.createElement('div');
-                    augmentDiv.textContent = augment;
-                    augmentDiv.onclick = function() {
+                    let augmentTag = document.createElement('div');
+                    augmentTag.textContent = augment;
+                    augmentTag.onclick = function() {
                         addItemToTable('Augment', augment);
                     };
-                    augmentList.appendChild(augmentDiv);
+                    augmentList.appendChild(augmentTag);
                 });
             });
         });
