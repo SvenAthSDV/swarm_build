@@ -1,0 +1,1 @@
+This is a basic setup for a LoL Build Creator website. To start the server, navigate to the "backend" directory and run "node server.js".
