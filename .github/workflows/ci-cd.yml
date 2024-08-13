@@ -1,37 +1,23 @@
-name: Node.js CI/CD
+name: Deploy to Server
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
-    - name: Install dependencies
-      run: npm install
-      working-directory: ./backend
-
     - name: Install sshpass
       run: sudo apt-get install -y sshpass
 
-    - name: Deploy to Server
+    - name: Deploy via SSH
       run: |
         sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no root@88.173.47.125 -p 17524 << 'EOF'
           cd /home/my_build_site/my_build_site
           git pull origin main
-          npm install
-          pm2 restart all
+          cd backend
+          node server.js
         EOF
