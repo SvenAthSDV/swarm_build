@@ -3,21 +3,29 @@ body {
     padding: 20px;
 }
 
-#weaponList, #augmentList {
+.item-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin: 20px 0;
 }
 
-#weaponList div, #augmentList div {
+.item-list div {
     padding: 10px;
+    background-color: #f0f0f0;
     border: 1px solid #ccc;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+.item-list div:hover {
+    background-color: #e0e0e0;
 }
 
 #selectedItemsTable {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 #selectedItemsTable th, #selectedItemsTable td {
