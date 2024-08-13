@@ -31,17 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     };
                     weaponList.appendChild(weaponTag);
                 });
-
-                // Afficher les augmentations recommandées
-                augmentList.innerHTML = '';  // Réinitialiser la liste des augmentations
-                selectedChampion.augments.forEach(augment => {
-                    let augmentTag = document.createElement('div');
-                    augmentTag.textContent = augment;
-                    augmentTag.onclick = function() {
-                        addItemToTable('Augment', augment);
-                    };
-                    augmentList.appendChild(augmentTag);
-                });
             });
         });
 
