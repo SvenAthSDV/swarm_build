@@ -31,9 +31,10 @@ document.addEventListener('DOMContentLoaded', function() {
             allWeapons.forEach(weaponName => {
                 let weaponTag = document.createElement('div');
                 weaponTag.textContent = weaponName;
-                console.log('Adding weapon:', weaponName);
+                weaponTag.classList.add('weapon-tag');
                 weaponTag.onclick = function() {
                     addItemToTable('Weapon', weaponName);
+                    weaponTag.remove(); // Retirer l'étiquette après l'ajout au tableau
                 };
                 weaponList.appendChild(weaponTag);
             });
@@ -43,9 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
             allAugments.forEach(augment => {
                 let augmentTag = document.createElement('div');
                 augmentTag.textContent = augment;
-                console.log('Adding augment:', augment);
+                augmentTag.classList.add('augment-tag');
                 augmentTag.onclick = function() {
                     addItemToTable('Augment', augment);
+                    augmentTag.remove(); // Retirer l'étiquette après l'ajout au tableau
                 };
                 augmentList.appendChild(augmentTag);
             });
