@@ -1,0 +1,345 @@
+{
+  "champions": [
+    {
+      "name": "Jinx",
+      "base_stats": {
+        "health": 550,
+        "damage": 58,
+        "armor": 22,
+        "magic_resistance": 30
+      },
+      "items": ["Annihilator", "Rapid Firecannon"],
+      "augments": ["Damage Boost", "Attack Speed"]
+    },
+    {
+      "name": "Seraphine",
+      "base_stats": {
+        "health": 500,
+        "damage": 50,
+        "armor": 20,
+        "magic_resistance": 30
+      },
+      "items": ["Luden's Echo", "Rabadon's Deathcap"],
+      "augments": ["Cooldown Reduction", "Mana Regeneration"]
+    },
+    {
+      "name": "Leona",
+      "base_stats": {
+        "health": 620,
+        "damage": 55,
+        "armor": 40,
+        "magic_resistance": 32
+      },
+      "items": ["Sunfire Cape", "Thornmail"],
+      "augments": ["Health Boost", "Armor Enhancement"]
+    },
+    {
+      "name": "Illaoi",
+      "base_stats": {
+        "health": 600,
+        "damage": 62,
+        "armor": 35,
+        "magic_resistance": 30
+      },
+      "items": ["Sterak's Gage", "Spirit Visage"],
+      "augments": ["Damage Boost", "Health Regeneration"]
+    },
+    {
+      "name": "Briar",
+      "base_stats": {
+        "health": 580,
+        "damage": 60,
+        "armor": 25,
+        "magic_resistance": 30
+      },
+      "items": ["Goredrinker", "Black Cleaver"],
+      "augments": ["Attack Damage", "Cooldown Reduction"]
+    },
+    {
+      "name": "Yasuo",
+      "base_stats": {
+        "health": 520,
+        "damage": 63,
+        "armor": 25,
+        "magic_resistance": 30
+      },
+      "items": ["Infinity Edge", "Phantom Dancer"],
+      "augments": ["Critical Strike", "Attack Speed"]
+    },
+    {
+      "name": "Riven",
+      "base_stats": {
+        "health": 560,
+        "damage": 64,
+        "armor": 33,
+        "magic_resistance": 30
+      },
+      "items": ["Black Cleaver", "Ravenous Hydra"],
+      "augments": ["Cooldown Reduction", "Attack Damage"]
+    },
+    {
+      "name": "Aurora",
+      "base_stats": {
+        "health": 500,
+        "damage": 60,
+        "armor": 20,
+        "magic_resistance": 30
+      },
+      "items": ["Rod of Ages", "Archangel's Staff"],
+      "augments": ["Mana Regeneration", "Ability Power"]
+    },
+    {
+      "name": "Xayah",
+      "base_stats": {
+        "health": 520,
+        "damage": 61,
+        "armor": 25,
+        "magic_resistance": 30
+      },
+      "items": ["Essence Reaver", "Runaan's Hurricane"],
+      "augments": ["Attack Speed", "Crit Damage"]
+    }
+  ],
+  "weapons": [
+    {
+      "name": "Ani-Mines",
+      "full_name": "Jinx's Tri-Namite",
+      "function": "Deploys timed explosives on the ground in a ring.",
+      "evolve": "Area Size",
+      "evolve_effect": "The initial explosions release additional explosions."
+    },
+    {
+      "name": "Anti-Shark Sea Mine",
+      "full_name": "Neverending Mobstomper",
+      "function": "Launches a mine that bounces between enemies.",
+      "evolve": "Damage",
+      "evolve_effect": "The mine bounces endlessly so long as a new target is found."
+    },
+    {
+      "name": "Battle Bunny Crossbow",
+      "full_name": "Bunny Prime Ballista",
+      "function": "Fires a cone of arrows in a random direction. Arrows pierce their target upon critically striking.",
+      "evolve": "Critical Chance",
+      "evolve_effect": "Fires a fan of many, many knives instead."
+    },
+    {
+      "name": "Blade-o-rang",
+      "full_name": "Quad-o-rang",
+      "function": "Fires returning blades at the nearest enemy.",
+      "evolve": "Move Speed",
+      "evolve_effect": "Blades explode into smaller ones."
+    },
+    {
+      "name": "Bunny Mega-Blast",
+      "full_name": "Rapid Rabbit Raindown",
+      "function": "Launches orbital strikes at random enemies.",
+      "evolve": "Critical Chance",
+      "evolve_effect": "Launches a barrage of orbital strikes at random enemies, ending with a massive one."
+    },
+    {
+      "name": "Cyclonic Slicers",
+      "full_name": "Unceasing Cyclone",
+      "function": "Orbiting razors damage and knock back enemies.",
+      "evolve": "Health Regen",
+      "evolve_effect": "Razors now permanently orbit."
+    },
+    {
+      "name": "Echoing Batblades",
+      "full_name": "Vayne's Chromablades",
+      "function": "Fires piercing spikes that bounce off terrain.",
+      "evolve": "Projectile Count",
+      "evolve_effect": "Damage increases with each bounce."
+    },
+    {
+      "name": "Final City Transit",
+      "full_name": "FC Limited Express",
+      "function": "Pet trains occasionally appear and drive through enemies.",
+      "evolve": "Damage",
+      "evolve_effect": "Trains now generate explosions in their wake and knock up enemies. Enemies slain by the train have a chance to drop Gold."
+    },
+    {
+      "name": "Gatling Bunny-Guns",
+      "full_name": "Double Bun-Bun Barrage",
+      "function": "Deals area damage over time in a cone.",
+      "evolve": "Duration",
+      "evolve_effect": "Enemies hit are slowed and eventually stunned."
+    },
+    {
+      "name": "Iceblast Armor",
+      "full_name": "Deep Freeze",
+      "function": "Grants an icy armor that blocks the next damage then freezes surrounding enemies.",
+      "evolve": "Armor",
+      "evolve_effect": "Grants an icy armor that blocks the next damage then grants a shield. When gaining the shield and when it is destroyed or expires, freezes surrounding enemies."
+    },
+    {
+      "name": "Lioness's Lament",
+      "full_name": "Enveloping Light",
+      "function": "Fires crescent-shaped projectiles horizontally in two opposite directions.",
+      "evolve": "Ability Haste",
+      "evolve_effect": "Fires beams of light horizontally in the two opposite directions."
+    },
+    {
+      "name": "Paw Print Poisoner",
+      "full_name": "Bearfoot Chem-Dispenser",
+      "function": "Leaves a damaging poison cloud behind while moving.",
+      "evolve": "Move Speed",
+      "evolve_effect": "Leaves a damaging poison cloud behind while moving which grants stacking Move Speed and a stacking shield based on the damage dealt."
+    },
+    {
+      "name": "Radiant Field",
+      "full_name": "Explosive Embrace",
+      "function": "A solar field damages nearby enemies.",
+      "evolve": "Max Health",
+      "evolve_effect": "Enemies that die within the field erupt, dealing damage in an area around them."
+    },
+    {
+      "name": "Searing Shortbow",
+      "full_name": "Evolved Embershot",
+      "function": "Shoots blazing arrows that sear random zones on the ground.",
+      "evolve": "Area Size",
+      "evolve_effect": "Seared zones' size and damage grows over their lifespan."
+    },
+    {
+      "name": "Statikk Sword",
+      "full_name": "Prumbis's Electrocarver",
+      "function": "Fires a lightning shock that bounces between high-health enemies.",
+      "evolve": "Max Health",
+      "evolve_effect": "A lightning storm is created in an area around shocked enemies for a short duration."
+    },
+    {
+      "name": "T.I.B.B.E.R.S",
+      "full_name": "T.I.B.B.E.R.S (B.E.E.G Edition)",
+      "function": "Summons a pet Robo-Tibbers. Robo-Tibbers swipes, dealing damage in an area. Robo-Tibbers focuses on enemies with the highest absolute current health.",
+      "evolve": "Duration",
+      "evolve_effect": "The improved model of Robo-Tibbers: larger, faster, and deals more damage."
+    },
+    {
+      "name": "The Annihilator",
+      "full_name": "Animapocalypse",
+      "function": "Clears the area. Long cooldown.",
+      "evolve": "EXP",
+      "evolve_effect": "All enemies slain by the strike drop bigger EXP Orbs and have a chance to drop several Gold."
+    },
+    {
+      "name": "UwU Blaster",
+      "full_name": "OwO Blaster",
+      "function": "Rapidly fires laser shots at the nearest enemy, dealing damage to the first enemy hit.",
+      "evolve": "Ability Haste",
+      "evolve_effect": "Fires twice as fast."
+    },
+    {
+      "name": "Vortex Glove",
+      "full_name": "Tempest's Gauntlet",
+      "function": "Fires a stream of orbs which hit all enemies in their path. The stream constantly rotates clockwise.",
+      "evolve": "Health Regen",
+      "evolve_effect": "Fires an additional stream of orbs that constantly rotates counter-clockwise."
+    },
+    {
+      "name": "YuumiBot",
+      "full_name": "YuumiBot_Final_FINAL",
+      "function": "Summons a pet Yuum.AI drone. Yuum.AI damages and knocks up enemies, and also gathers EXP Orbs.",
+      "evolve": "Pickup Radius",
+      "evolve_effect": "The drone now drops a healing pack after attaining a certain amount of damage to enemies."
+    }
+  ]
+  "augments": [
+    {
+      "type": "Ability Haste",
+      "amount_per_level": "+10",
+      "effect": {
+        "ability_haste": 10
+      }
+    },
+    {
+      "type": "Area Size",
+      "amount_per_level": "+11%",
+      "effect": {
+        "area_size_multiplier": 1.11
+      }
+    },
+    {
+      "type": "Armor",
+      "amount_per_level": "+8",
+      "effect": {
+        "armor": 8
+      }
+    },
+    {
+      "type": "Critical Chance",
+      "amount_per_level": "+8%",
+      "effect": {
+        "critical_chance": 0.08
+      }
+    },
+    {
+      "type": "Damage",
+      "amount_per_level": "+10%",
+      "effect": {
+        "damage_multiplier": 1.10
+      }
+    },
+    {
+      "type": "Duration",
+      "amount_per_level": "+12%",
+      "effect": {
+        "duration_multiplier": 1.12
+      }
+    },
+    {
+      "type": "EXP",
+      "amount_per_level": "+10%",
+      "effect": {
+        "exp_multiplier": 1.10
+      }
+    },
+    {
+      "type": "Health Regen",
+      "amount_per_level": "+4",
+      "effect": {
+        "health_regen": 4
+      }
+    },
+    {
+      "type": "Max Health",
+      "amount_per_level": "+150",
+      "effect": {
+        "max_health": 150
+      }
+    },
+    {
+      "type": "Move Speed",
+      "amount_per_level": "+9%",
+      "effect": {
+        "move_speed_multiplier": 1.09
+      }
+    },
+    {
+      "type": "Pickup Radius",
+      "amount_per_level": "+35%",
+      "effect": {
+        "pickup_radius_multiplier": 1.35
+      }
+    },
+    {
+      "type": "Projectile Count",
+      "amount_per_level": "1 / 1 / 2 / 2 / 3",
+      "effect": {
+        "projectile_count": [1, 1, 2, 2, 3]
+      }
+    },
+    {
+      "type": "Gain 25 Gold",
+      "amount_per_level": "At full build",
+      "effect": {
+        "gain_gold": 25
+      }
+    },
+    {
+      "type": "Heal 25% HP",
+      "amount_per_level": "At full build",
+      "effect": {
+        "heal_percentage": 0.25
+      }
+    }
+  ]
+}
