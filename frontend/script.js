@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const championSelect = document.getElementById('champion');
     const weaponList = document.getElementById('weaponList');
     const augmentList = document.getElementById('augmentList');
-    const selectedItemsTable = document.getElementById('selectedItemsTable').querySelector('tbody');
+    const selectedWeaponsTable = document.getElementById('selectedWeaponsTable').querySelector('tbody');
+    const selectedAugmentsTable = document.getElementById('selectedAugmentsTable').querySelector('tbody');
 
     let allWeapons = [];
     let allAugments = [];
@@ -21,13 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Récupérer toutes les armes et augmentations disponibles
             champions.forEach(champion => {
-                // Ajouter les armes du champion à la liste totale
                 champion.items.forEach(item => {
-                    if (!allWeapons.includes(item)) {
+                    if (!allWeapons.some(weapon => weapon.name === item.name)) {
                         allWeapons.push(item);
                     }
                 });
-                // Ajouter les augmentations du champion à la liste totale
                 champion.augments.forEach(augment => {
                     if (!allAugments.includes(augment)) {
                         allAugments.push(augment);
@@ -42,7 +41,6 @@ document.addEventListener('DOMContentLoaded', function() {
             championSelect.addEventListener('change', function() {
                 const selectedChampion = champions.find(c => c.name === championSelect.value);
                 console.log('Selected champion:', selectedChampion);
-                // Tu peux ajouter ici des actions spécifiques liées au changement de champion.
             });
         });
 
@@ -50,12 +48,12 @@ document.addEventListener('DOMContentLoaded', function() {
         weaponList.innerHTML = '';  // Réinitialiser la liste des armes
         augmentList.innerHTML = '';  // Réinitialiser la liste des augmentations
 
-        allWeapons.forEach(weaponName => {
+        allWeapons.forEach(weapon => {
             let weaponTag = document.createElement('div');
-            weaponTag.textContent = weaponName;
+            weaponTag.textContent = weapon.name;
             weaponTag.classList.add('weapon-tag');
             weaponTag.onclick = function() {
-                addItemToTable('Weapon', weaponName);
+                addWeaponToTable(weapon.name, weapon.evolve);
                 weaponTag.remove(); // Retirer l'étiquette après l'ajout au tableau
             };
             weaponList.appendChild(weaponTag);
@@ -66,26 +64,33 @@ document.addEventListener('DOMContentLoaded', function() {
             augmentTag.textContent = augment;
             augmentTag.classList.add('augment-tag');
             augmentTag.onclick = function() {
-                addItemToTable('Augment', augment);
+                addAugmentToTable(augment);
                 augmentTag.remove(); // Retirer l'étiquette après l'ajout au tableau
             };
             augmentList.appendChild(augmentTag);
         });
     }
 
-    function addItemToTable(type, name) {
+    function addWeaponToTable(name, evolve) {
         const row = document.createElement('tr');
-        const typeCell = document.createElement('td');
         const nameCell = document.createElement('td');
         const evolveCell = document.createElement('td');
-
-        typeCell.textContent = type;
+        
         nameCell.textContent = name;
         evolveCell.textContent = evolve;
         
-        row.appendChild(typeCell);
         row.appendChild(nameCell);
         row.appendChild(evolveCell);
-        selectedItemsTable.appendChild(row);
+        selectedWeaponsTable.appendChild(row);
+    }
+
+    function addAugmentToTable(name) {
+        const row = document.createElement('tr');
+        const nameCell = document.createElement('td');
+        
+        nameCell.textContent = name;
+        
+        row.appendChild(nameCell);
+        selectedAugmentsTable.appendChild(row);
     }
 });
