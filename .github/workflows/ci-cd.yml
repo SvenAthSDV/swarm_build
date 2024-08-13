@@ -18,22 +18,23 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '16'  # Assure-toi que la version correspond à ce que ton projet utilise
 
     - name: Install dependencies
       run: npm install
+      working-directory: ./backend  # Spécifie le répertoire où se trouve le package.json
 
     - name: Run tests
       run: npm test
-    
-    - name: Add SSH key
-      uses: webfactory/ssh-agent@v0.5.3
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      working-directory: ./backend  # Spécifie le répertoire où se trouvent les tests
+
+    - name: Build the project
+      run: npm run build
+      working-directory: ./backend  # Spécifie le répertoire où se trouve le script de build
 
     - name: Deploy to Server
       run: |
-        ssh username@your-server-ip << 'EOF'
+        ssh -o StrictHostKeyChecking=no username@your-server-ip << 'EOF'
           cd /chemin/vers/ton/projet
           git pull origin main
           npm install
