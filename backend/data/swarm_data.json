@@ -241,7 +241,7 @@
       "evolve": "Pickup Radius",
       "evolve_effect": "The drone now drops a healing pack after attaining a certain amount of damage to enemies."
     }
-  ]
+  ],
   "augments": [
     {
       "type": "Ability Haste",
