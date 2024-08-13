@@ -21,11 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Récupérer toutes les armes et augmentations disponibles
             champions.forEach(champion => {
+                // Ajouter les armes du champion à la liste totale
                 champion.items.forEach(item => {
-                    if (!allWeapons.some(weapon => weapon.name === item.name)) {
+                    if (!allWeapons.includes(item)) {
                         allWeapons.push(item);
                     }
                 });
+                // Ajouter les augmentations du champion à la liste totale
                 champion.augments.forEach(augment => {
                     if (!allAugments.includes(augment)) {
                         allAugments.push(augment);
@@ -40,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             championSelect.addEventListener('change', function() {
                 const selectedChampion = champions.find(c => c.name === championSelect.value);
                 console.log('Selected champion:', selectedChampion);
+                // Tu peux ajouter ici des actions spécifiques liées au changement de champion.
             });
         });
 
@@ -47,12 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
         weaponList.innerHTML = '';  // Réinitialiser la liste des armes
         augmentList.innerHTML = '';  // Réinitialiser la liste des augmentations
 
-        allWeapons.forEach(weapon => {
+        allWeapons.forEach(weaponName => {
             let weaponTag = document.createElement('div');
-            weaponTag.textContent = weapon.name;
+            weaponTag.textContent = weaponName;
             weaponTag.classList.add('weapon-tag');
             weaponTag.onclick = function() {
-                addItemToTable('Weapon', weapon.name, weapon.evolve);
+                addItemToTable('Weapon', weaponName);
                 weaponTag.remove(); // Retirer l'étiquette après l'ajout au tableau
             };
             weaponList.appendChild(weaponTag);
@@ -70,19 +73,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    function addItemToTable(type, name, evolve = '') {
+    function addItemToTable(type, name) {
         const row = document.createElement('tr');
         const typeCell = document.createElement('td');
         const nameCell = document.createElement('td');
-        const evolveCell = document.createElement('td');
         
         typeCell.textContent = type;
         nameCell.textContent = name;
-        evolveCell.textContent = evolve;
         
         row.appendChild(typeCell);
         row.appendChild(nameCell);
-        row.appendChild(evolveCell);
         selectedItemsTable.appendChild(row);
     }
 });
