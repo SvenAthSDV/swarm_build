@@ -18,25 +18,32 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  # Assure-toi que la version correspond à ce que ton projet utilise
+        node-version: '16'
 
     - name: Install dependencies
       run: npm install
-      working-directory: ./backend  # Spécifie le répertoire où se trouve le package.json
+      working-directory: ./backend
 
-    - name: Add SSH key
-      run: |
-       echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key
-       chmod 600 ssh_key
-       ssh-add ssh_key
-      env:
-       SSH_AUTH_SOCK: /tmp/ssh-agent.socket
+    # - name: Run tests
+    #   run: npm test
+    #   working-directory: ./backend
+
+    - name: Build the project
+      run: npm run build
+      working-directory: ./backend
 
     - name: Deploy to Server
       run: |
-        ssh -o StrictHostKeyChecking=no root@88.173.47.125 -p 17524 << 'EOF'
-          cd /home/my_build_site/my_build_site
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key
+        chmod 600 ssh_key
+        ssh -o StrictHostKeyChecking=no -i ssh_key root@88.173.47.125 -p 17524 << 'EOF'
+          cd /chemin/vers/ton/projet
           git pull origin main
           npm install
-          pm2 restart all  # Si tu utilises pm2 pour gérer ton serveur
+          pm2 restart all
         EOF
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Clean up
+      run: rm ssh_key
