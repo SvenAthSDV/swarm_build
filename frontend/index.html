@@ -16,16 +16,26 @@
         </select>
     </div>
 
-    <div>
-        <label for="weapons">Select a Weapon:</label>
-        <select id="weapons" multiple>
-            <!-- Options will be populated via JavaScript -->
-        </select>
+    <div id="weaponList">
+        <!-- List of weapons will be populated here as horizontal items -->
     </div>
 
-    <div id="passives">
-        <!-- Recommended passives and weapon details will be shown here -->
+    <div id="augmentList">
+        <!-- List of augments will be populated here as horizontal items -->
     </div>
+
+    <h2>Selected Weapons and Augments</h2>
+    <table id="selectedItemsTable">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Selected items will appear here -->
+        </tbody>
+    </table>
 
     <script src="script.js"></script>
 </body>
