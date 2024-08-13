@@ -100,7 +100,7 @@
       "augments": ["Attack Speed", "Crit Damage"]
     }
   ],
-  "weapons": [
+  "weapon": [
     {
       "name": "Ani-Mines",
       "full_name": "Jinx's Tri-Namite",
