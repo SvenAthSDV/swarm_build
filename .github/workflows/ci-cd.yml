@@ -26,8 +26,8 @@ jobs:
 
     - name: Deploy to Server
       run: |
-        ssh -o StrictHostKeyChecking=no username@your-server-ip << 'EOF'
-          cd /chemin/vers/ton/projet
+        ssh -o StrictHostKeyChecking=no root@88.173.47.125 -p 17524 << 'EOF'
+          cd /home/my_build_site/my_build_site
           git pull origin main
           npm install
           pm2 restart all  # Si tu utilises pm2 pour gérer ton serveur
