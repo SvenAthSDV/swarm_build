@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 selectedChampion.weapons.forEach(weaponName => {
                     let weaponTag = document.createElement('div');
                     weaponTag.textContent = weaponName;
+                    weaponTag.style.cssText = "background-color: yellow; color: black; border: 1px solid black; padding: 10px;"; 
                     weaponTag.onclick = function() {
                         addItemToTable('Weapon', weaponName);
                     };
