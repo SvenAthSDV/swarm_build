@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('/champions')
         .then(response => response.json())
         .then(champions => {
-            console.log('Champions loaded:', champions); // Ajoute ceci
+            console.log('Champions loaded:', champions); // Débogage
             champions.forEach(champion => {
                 let option = document.createElement('option');
                 option.value = champion.name;
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             championSelect.addEventListener('change', function() {
                 const selectedChampion = champions.find(c => c.name === championSelect.value);
-                console.log('Selected champion:', selectedChampion); // Ajoute ceci
+                console.log('Selected champion:', selectedChampion); // Débogage
 
                 // Afficher les armes associées au champion sélectionné
                 weaponList.innerHTML = '';  // Réinitialiser la liste des armes
