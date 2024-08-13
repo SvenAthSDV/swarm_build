@@ -24,6 +24,14 @@ jobs:
       run: npm install
       working-directory: ./backend  # Spécifie le répertoire où se trouve le package.json
 
+    - name: Add SSH key
+      run: |
+       echo "${{ secrets.SSH_PRIVATE_KEY }}" > ssh_key
+       chmod 600 ssh_key
+       ssh-add ssh_key
+      env:
+       SSH_AUTH_SOCK: /tmp/ssh-agent.socket
+
     - name: Deploy to Server
       run: |
         ssh -o StrictHostKeyChecking=no root@88.173.47.125 -p 17524 << 'EOF'
